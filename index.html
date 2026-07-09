@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Simulados LDB - SEDUC CE</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #0f766e;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --text-color: #1e293b;
+            --border-color: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            border-color: var(--secondary-color);
+        }
+
+        .card-icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .card-desc {
+            font-size: 15px;
+            color: #475569;
+            flex-grow: 1;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background-color 0.2s;
+        }
+
+        .card:hover .btn {
+            background-color: var(--secondary-color);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 25px;
+            font-size: 14px;
+            color: #64748b;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Plataforma de Simulados LDB</h1>
+    <p>Foco Estratégico: Concurso SEDUC CE — Padrão FUNECE / UECE</p>
+</header>
+
+<div class="container">
+    <div class="grid">
+        <a href="simulado_1_a_5.html" class="card">
+            <div class="card-icon">🏛️</div>
+            <div class="card-title">Módulo 1: Artigos 1º ao 5º</div>
+            <div class="card-desc">Princípios e Fins da Educação Nacional. Direito à Educação e Dever de Educar.</div>
+            <span class="btn">Acessar Simulado</span>
+        </a>
+
+        <a href="simulado_6_a_13.html" class="card">
+            <div class="card-icon">📚</div>
+            <div class="card-title">Módulo 2: Artigos 6º ao 13</div>
+            <div class="card-desc">Organização da Educação Nacional, obrigações federativas e incumbências das escolas e pais.</div>
+            <span class="btn">Acessar Simulado</span>
+        </a>
+
+        <a href="simulado_12_e_13.html" class="card">
+            <div class="card-icon">👩‍🏫</div>
+            <div class="card-title">Módulo 3: Artigos 12 e 13</div>
+            <div class="card-desc">Incumbências específicas e detalhadas dos estabelecimentos de ensino e dos docentes.</div>
+            <span class="btn">Acessar Simulado</span>
+        </a>
+
+        <a href="simulado_14_a_25.html" class="card">
+            <div class="card-icon">📊</div>
+            <div class="card-title">Módulo 4: Artigos 14 ao 25</div>
+            <div class="card-desc">Gestão Democrática, composição dos sistemas de ensino e regras comuns da Educação Básica.</div>
+            <span class="btn">Acessar Simulado</span>
+        </a>
+
+        <a href="simulado_22_a_28.html" class="card">
+            <div class="card-icon">🎯</div>
+            <div class="card-title">Módulo 5: Artigos 22 ao 28</div>
+            <div class="card-desc">Finalidades da Educação Básica, composição curricular (BNCC) e Educação do Campo.</div>
+            <span class="btn">Acessar Simulado</span>
+        </a>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Portal de Simulados SEDUC CE. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
