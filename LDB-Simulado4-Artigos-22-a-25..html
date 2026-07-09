@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado SEDUC CE - LDB (Arts. 22 ao 28)</title>
+    <style>
+        :root {
+            --cor-fundo: #f4f6f9;
+            --cor-texto: #333;
+            --cor-primaria: #004a8f;
+            --cor-correta: #d4edda;
+            --cor-correta-borda: #c3e6cb;
+            --cor-correta-texto: #155724;
+            --cor-incorreta: #f8d7da;
+            --cor-incorreta-borda: #f5c6cb;
+            --cor-incorreta-texto: #721c24;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--cor-primaria);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            color: var(--cor-primaria);
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .questao-container {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .enunciado {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .itens-contemplacao {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fafafa;
+            border-left: 4px solid #ccc;
+            font-size: 1.05em;
+        }
+
+        .itens-contemplacao p {
+            margin: 8px 0;
+        }
+
+        .alternativas {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .alternativa {
+            background-color: #fff;
+            border: 1px solid #dcdcdc;
+            border-radius: 6px;
+            padding: 15px 20px;
+            font-size: 1em;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .alternativa:hover:not(.desabilitada) {
+            background-color: #f0f4f8;
+            border-color: var(--cor-primaria);
+        }
+
+        /* Classes dinâmicas injetadas pelo JS */
+        .correta {
+            background-color: var(--cor-correta) !important;
+            border-color: var(--cor-correta-borda) !important;
+            color: var(--cor-correta-texto) !important;
+            font-weight: bold;
+        }
+
+        .incorreta {
+            background-color: var(--cor-incorreta) !important;
+            border-color: var(--cor-incorreta-borda) !important;
+            color: var(--cor-incorreta-texto) !important;
+        }
+
+        .desabilitada {
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        .comentario-professor {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e8f4fd;
+            border-left: 5px solid var(--cor-primaria);
+            border-radius: 4px;
+        }
+
+        .comentario-professor h4 {
+            margin-top: 0;
+            color: var(--cor-primaria);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Simulado SEDUC CE - Padrão FUNECE</h1>
+        <p>Disciplina: Conhecimentos Pedagógicos e Legislação Educacional (LDB: Arts. 22 ao 28)</p>
+    </header>
+
+    <!-- QUESTÃO 1 (Objetiva Tradicional) -->
+    <div class="questao-container" id="q1">
+        <div class="enunciado">
+            <strong>1. (Inédita/Simulado FUNECE)</strong> À luz da Lei nº 9.394/1996 (LDB), especificamente quanto às regras comuns de organização da educação básica nos níveis fundamental e médio, assinale a alternativa correta sobre a verificação do rendimento escolar e a carga horária.
+        </div>
+        <div class="alternativas">
+            <button class="alternativa" data-letra="A" onclick="verificarResposta('q1', 'C', this)">
+                A) A avaliação escolar deve priorizar os aspectos quantitativos sobre os qualitativos, garantindo a prevalência dos resultados finais sobre os obtidos ao longo do período letivo.
+            </button>
+            <button class="alternativa" data-letra="B" onclick="verificarResposta('q1', 'C', this)">
+                B) A carga horária mínima anual será de 800 horas para ambos os níveis (fundamental e médio), distribuídas por, no mínimo, 200 dias de trabalho educacional, devendo-se incluir nesse cômputo o tempo reservado aos exames finais.
+            </button>
+            <button class="alternativa" data-letra="C" onclick="verificarResposta('q1', 'C', this)">
+                C) A verificação do rendimento escolar contemplará a obrigatoriedade de estudos de recuperação, de preferência paralelos ao período letivo, para os casos de baixo rendimento escolar.
+            </button>
+            <button class="alternativa" data-letra="D" onclick="verificarResposta('q1', 'C', this)">
+                D) O controle de frequência, que é de responsabilidade exclusiva dos conselhos tutelares e órgãos de assistência social, exige a presença mínima de setenta e cinco por cento do total de horas letivas para aprovação.
+            </button>
+        </div>
+        <div class="comentario-professor" id="comentario-q1">
+            <h4>💡 Comentário do Professor</h4>
+            <p><strong>Gabarito: C.</strong> Exata redação do Art. 24, inciso V, alínea "e", da LDB. A recuperação deve ser, de preferência, contínua e paralela ao período letivo.</p>
+            <p><strong>Erros das demais:</strong><br>
+            <strong>A)</strong> Inverteu a lógica. A avaliação deve ser contínua e cumulativa, com prevalência dos aspectos qualitativos sobre os quantitativos e dos resultados ao longo do período sobre os de eventuais provas finais (Art. 24, V, "a").<br>
+            <strong>B)</strong> O ensino fundamental possui 800h mínimas, mas o ensino médio, após as recentes reformas, possui carga horária mínima anual de 1.000 horas. Além disso, o tempo reservado aos exames finais é <em>excluído</em> da contagem dos 200 dias (Art. 24, I).<br>
+            <strong>D)</strong> O controle de frequência fica a cargo da <em>escola</em>, e não do conselho tutelar (Art. 24, VI).</p>
+        </div>
+    </div>
+
+    <!-- QUESTÃO 2 (Contemplação Múltipla) -->
+    <div class="questao-container" id="q2">
+        <div class="enunciado">
+            <strong>2. (Inédita/Simulado FUNECE)</strong> Analise as assertivas a seguir, considerando as prescrições da LDB (arts. 26, 26-A e 26-B) acerca da composição curricular da educação básica:
+        </div>
+        <div class="itens-contemplacao">
+            <p><strong>I.</strong> O ensino da arte, especialmente em suas expressões regionais, constituirá componente curricular obrigatório, abrangendo as linguagens de artes visuais, dança, música e teatro.</p>
+            <p><strong>II.</strong> A educação física é componente curricular obrigatório, sendo sua prática facultativa ao aluno maior de vinte e cinco anos de idade, dentre outras hipóteses legais.</p>
+            <p><strong>III.</strong> Nos estabelecimentos de ensino fundamental e médio, torna-se facultativo o estudo da história e cultura afro-brasileira, porém, mantém-se obrigatório o estudo da cultura indígena.</p>
+            <p><strong>IV.</strong> A educação alimentar e nutricional e os conteúdos relativos aos direitos humanos serão incluídos como temas transversais nos currículos.</p>
+        </div>
+        <div class="enunciado">
+            É correto o que se afirma em:
+        </div>
+        <div class="alternativas">
+            <button class="alternativa" data-letra="A" onclick="verificarResposta('q2', 'C', this)">
+                A) I, II e IV, apenas.
+            </button>
+            <button class="alternativa" data-letra="B" onclick="verificarResposta('q2', 'C', this)">
+                B) II e III, apenas.
+            </button>
+            <button class="alternativa" data-letra="C" onclick="verificarResposta('q2', 'C', this)">
+                C) I e IV, apenas.
+            </button>
+            <button class="alternativa" data-letra="D" onclick="verificarResposta('q2', 'C', this)">
+                D) I, II, III e IV.
+            </button>
+        </div>
+        <div class="comentario-professor" id="comentario-q2">
+            <h4>💡 Comentário do Professor</h4>
+            <p><strong>Gabarito: C. (Itens I e IV estão corretos).</strong></p>
+            <p><strong>Análise dos itens:</strong><br>
+            <strong>I - CORRETO.</strong> Conforme o Art. 26, §§ 2º e 6º.<br>
+            <strong>II - INCORRETO.</strong> A prática da educação física é facultativa ao aluno maior de <strong>trinta anos</strong> de idade (Art. 26, §3º, II), e não vinte e cinco.<br>
+            <strong>III - INCORRETO.</strong> O estudo da história e cultura afro-brasileira e indígena é <strong>obrigatório</strong> em ambos os casos nos estabelecimentos de ensino fundamental e médio (Art. 26-A).<br>
+            <strong>IV - CORRETO.</strong> Previsto expressamente no Art. 26, §§ 9º e 9º-A.</p>
+        </div>
+    </div>
+
+    <!-- QUESTÃO 3 (Objetiva Tradicional) -->
+    <div class="questao-container" id="q3">
+        <div class="enunciado">
+            <strong>3. (Inédita/Simulado FUNECE)</strong> No que tange à oferta de educação básica para a população rural, a LDB orienta que os sistemas de ensino promovam as adaptações necessárias às peculiaridades da vida no campo. Sobre a organização desta modalidade e a política de manutenção das unidades educacionais, assinale a assertiva correta:
+        </div>
+        <div class="alternativas">
+            <button class="alternativa" data-letra="A" onclick="verificarResposta('q3', 'B', this)">
+                A) A organização escolar do campo exige calendário idêntico ao calendário do meio urbano, a fim de evitar defasagem nas avaliações nacionais, sendo expressamente vetada a pedagogia da alternância.
+            </button>
+            <button class="alternativa" data-letra="B" onclick="verificarResposta('q3', 'B', this)">
+                B) O fechamento de escolas do campo, indígenas e quilombolas deverá ser precedido de manifestação do órgão normativo do respectivo sistema de ensino.
+            </button>
+            <button class="alternativa" data-letra="C" onclick="verificarResposta('q3', 'B', this)">
+                C) O fechamento de escolas rurais é ato discricionário e exclusivo do Chefe do Executivo municipal, prescindindo de análise de diagnóstico de impacto ou consulta à comunidade escolar.
+            </button>
+            <button class="alternativa" data-letra="D" onclick="verificarResposta('q3', 'B', this)">
+                D) A metodologia apropriada às reais necessidades dos alunos do campo exclui a possibilidade de reclassificação ou avanço de séries, obrigando o seguimento rígido do ensino fundamental de 9 anos ininterruptos.
+            </button>
+        </div>
+        <div class="comentario-professor" id="comentario-q3">
+            <h4>💡 Comentário do Professor</h4>
+            <p><strong>Gabarito: B.</strong> Fundamento no parágrafo único do Art. 28 da LDB. O fechamento dessas escolas não é arbitrário, exigindo manifestação do órgão normativo, justificativa da Secretaria, diagnóstico de impacto e oitiva da comunidade.</p>
+            <p><strong>Erros das demais:</strong><br>
+            <strong>A)</strong> O calendário DEVE ser adequado às fases do ciclo agrícola e condições climáticas (Art. 28, II), e a pedagogia da alternância é expressamente citada como possibilidade (Art. 28, I).<br>
+            <strong>C)</strong> Contradiz frontalmente o parágrafo único do Art. 28, que impõe procedimentos de consulta e justificação técnica.<br>
+            <strong>D)</strong> A LDB garante a flexibilidade e reclassificação para toda a educação básica (Art. 23), não havendo exclusão para as escolas do campo.</p>
+        </div>
+    </div>
+
+    <!-- QUESTÃO 4 (Contemplação Múltipla) -->
+    <div class="questao-container" id="q4">
+        <div class="enunciado">
+            <strong>4. (Inédita/Simulado FUNECE)</strong> Acerca das formas de organização, reclassificação e adequação da educação básica, nos termos do Art. 23 da Lei nº 9.394/96, julgue os preceitos abaixo:
+        </div>
+        <div class="itens-contemplacao">
+            <p><strong>I.</strong> A educação básica pode organizar-se exclusivamente em séries anuais e períodos semestrais, sendo expressamente vedada a formação de grupos não-seriados.</p>
+            <p><strong>II.</strong> A escola poderá reclassificar os alunos, inclusive quando se tratar de transferências entre estabelecimentos situados no País e no exterior, tendo como base as normas curriculares gerais.</p>
+            <p><strong>III.</strong> O calendário escolar deverá adequar-se às peculiaridades locais, inclusive climáticas e econômicas, sendo permitido, mediante aprovação do conselho escolar, reduzir o número de horas letivas anuais.</p>
+            <p><strong>IV.</strong> A organização do tempo e da estrutura escolar pode adotar a alternância regular de períodos de estudos, sempre que o interesse do processo de aprendizagem assim o recomendar.</p>
+        </div>
+        <div class="enunciado">
+            Assinale a alternativa que indica os preceitos verdadeiros:
+        </div>
+        <div class="alternativas">
+            <button class="alternativa" data-letra="A" onclick="verificarResposta('q4', 'D', this)">
+                A) I e III, apenas.
+            </button>
+            <button class="alternativa" data-letra="B" onclick="verificarResposta('q4', 'D', this)">
+                B) I, II e IV, apenas.
+            </button>
+            <button class="alternativa" data-letra="C" onclick="verificarResposta('q4', 'D', this)">
+                C) II e III, apenas.
+            </button>
+            <button class="alternativa" data-letra="D" onclick="verificarResposta('q4', 'D', this)">
+                D) II e IV, apenas.
+            </button>
+        </div>
+        <div class="comentario-professor" id="comentario-q4">
+            <h4>💡 Comentário do Professor</h4>
+            <p><strong>Gabarito: D. (Itens II e IV estão corretos).</strong></p>
+            <p><strong>Análise dos itens:</strong><br>
+            <strong>I - INCORRETO.</strong> O Art. 23 afirma exatamente o oposto, consagrando a flexibilidade: pode se organizar em séries anuais, períodos semestrais, ciclos, alternância, <em>grupos não-seriados</em>, etc.<br>
+            <strong>II - CORRETO.</strong> É a literalidade do Art. 23, § 1º da LDB.<br>
+            <strong>III - INCORRETO.</strong> A adequação do calendário às peculiaridades locais (climáticas e econômicas) deve ocorrer <em>"sem com isso reduzir o número de horas letivas previsto nesta Lei"</em> (Art. 23, § 2º).<br>
+            <strong>IV - CORRETO.</strong> Hipótese explícita no caput do Art. 23 (flexibilidade da organização curricular).</p>
+        </div>
+    </div>
+
+    <!-- QUESTÃO 5 (Objetiva Tradicional) -->
+    <div class="questao-container" id="q5">
+        <div class="enunciado">
+            <strong>5. (Inédita/Simulado FUNECE)</strong> De acordo com a LDB (Arts. 22 e 26), a educação básica possui finalidades intrínsecas e deve ser balizada por uma base nacional comum curricular. Diante do rigor conceitual exigido pela norma, assinale a proposição correta:
+        </div>
+        <div class="alternativas">
+            <button class="alternativa" data-letra="A" onclick="verificarResposta('q5', 'C', this)">
+                A) A inclusão de novos componentes curriculares de caráter obrigatório na Base Nacional Comum Curricular é discricionária e constitui prerrogativa exclusiva de cada sistema municipal de ensino.
+            </button>
+            <button class="alternativa" data-letra="B" onclick="verificarResposta('q5', 'C', this)">
+                B) O desenvolvimento pleno da alfabetização e a formação de leitores figuram como objetivos secundários e opcionais, restritos à primeira etapa do ensino fundamental.
+            </button>
+            <button class="alternativa" data-letra="C" onclick="verificarResposta('q5', 'C', this)">
+                C) A educação básica tem por finalidades desenvolver o educando, assegurar-lhe a formação comum indispensável para o exercício da cidadania e fornecer-lhe meios para progredir no trabalho e em estudos posteriores.
+            </button>
+            <button class="alternativa" data-letra="D" onclick="verificarResposta('q5', 'C', this)">
+                D) A educação digital consubstancia-se como tema transversal restrito ao ensino médio, focando apenas no ensino de robótica de alto desempenho, sendo dispensável o letramento digital de jovens.
+            </button>
+        </div>
+        <div class="comentario-professor" id="comentario-q5">
+            <h4>💡 Comentário do Professor</h4>
+            <p><strong>Gabarito: C.</strong> É a transcrição exata e ipsis litteris do <em>caput</em> do Art. 22 da LDB, que define as finalidades constituintes de toda a educação básica.</p>
+            <p><strong>Erros das demais:</strong><br>
+            <strong>A)</strong> A inclusão de novos componentes obrigatórios na BNCC dependerá de aprovação do <em>Conselho Nacional de Educação (CNE)</em> e homologação pelo <em>Ministro da Educação</em> (Art. 26, §10).<br>
+            <strong>B)</strong> A alfabetização plena e a formação de leitores são objetivos <strong>precípuos</strong> (principais/essenciais) da educação básica, e não secundários (Art. 22, parágrafo único).<br>
+            <strong>D)</strong> A educação digital é componente curricular transversal com foco expressamente voltado ao <strong>letramento digital</strong>, ensino de computação e robótica, abrangendo tanto o <strong>ensino fundamental quanto o médio</strong> (Art. 26, §11).</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    /**
+     * Lógica de verificação de respostas.
+     * @param {string} idQuestao - ID do container da questão (ex: 'q1').
+     * @param {string} alternativaCorreta - Letra da alternativa correta (ex: 'A', 'B', 'C', 'D').
+     * @param {HTMLElement} elementoClicado - O botão que foi clicado.
+     */
+    function verificarResposta(idQuestao, alternativaCorreta, elementoClicado) {
+        // Encontra o container principal da questão
+        const container = document.getElementById(idQuestao);
+        
+        // Pega todas as alternativas dentro desta questão
+        const alternativas = container.querySelectorAll('.alternativa');
+        
+        // Desabilita os cliques em todas as alternativas da questão atual
+        alternativas.forEach(alt => {
+            alt.classList.add('desabilitada');
+            
+            // Se esta for a alternativa correta na lógica, pinta de verde
+            if (alt.getAttribute('data-letra') === alternativaCorreta) {
+                alt.classList.add('correta');
+            }
+        });
+
+        // Verifica se o usuário errou
+        const letraClicada = elementoClicado.getAttribute('data-letra');
+        if (letraClicada !== alternativaCorreta) {
+            // Se errou, pinta a clicada de vermelho
+            elementoClicado.classList.add('incorreta');
+        }
+
+        // Exibe o feedback (Comentário do Professor) com efeito visual
+        const feedback = document.getElementById('comentario-' + idQuestao);
+        feedback.style.display = 'block';
+        
+        // Suave animação de opacidade para aparecer o feedback
+        feedback.animate([
+            { opacity: 0, transform: 'translateY(-10px)' },
+            { opacity: 1, transform: 'translateY(0)' }
+        ], {
+            duration: 400,
+            easing: 'ease-out'
+        });
+    }
+</script>
+
+</body>
+</html>

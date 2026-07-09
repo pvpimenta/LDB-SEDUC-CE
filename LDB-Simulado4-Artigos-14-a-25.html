@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado Interativo LDB (Artigos 14 a 25) - Concurso SEDUC CE</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #0f766e;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --text-color: #1e293b;
+            --correct-bg: #d4edda;
+            --correct-border: #c3e6cb;
+            --correct-text: #155724;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #f5c6cb;
+            --incorrect-text: #721c24;
+            --border-color: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 35px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .questao {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+
+        .questao-numero {
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .enunciado {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .bloco-itens {
+            background-color: #f1f5f9;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .bloco-itens p {
+            margin: 10px 0;
+            font-size: 14.5px;
+            text-align: justify;
+        }
+
+        .opcoes {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .opcao {
+            padding: 14px 18px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            background-color: #fafafa;
+            display: flex;
+            align-items: flex-start;
+            text-align: justify;
+        }
+
+        .opcao:hover {
+            background-color: #f1f5f9;
+            border-color: #94a3b8;
+            transform: translateX(3px);
+        }
+
+        /* Classes de Interatividade via JS */
+        .opcao.correta {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-border) !important;
+            color: var(--correct-text) !important;
+            font-weight: 600;
+        }
+
+        .opcao.incorreta {
+            background-color: var(--incorrect-bg) !important;
+            border-color: var(--incorrect-border) !important;
+            color: var(--incorrect-text) !important;
+        }
+
+        .desabilitada .opcao {
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+
+        .desabilitada .opcao:hover {
+            transform: none;
+        }
+
+        .comentario {
+            display: none;
+            margin-top: 25px;
+            padding: 18px;
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            border-radius: 0 6px 6px 0;
+            font-size: 14.5px;
+            color: #1e3a8a;
+            text-align: justify;
+        }
+
+        .comentario strong {
+            color: #1d4ed8;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 25px;
+            font-size: 13.5px;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Simulado Especialista LDB — Artigos 14 a 25</h1>
+        <p>Foco Estratégico: Concurso SEDUC CE — Padrão de Rigor Técnico FUNECE/UECE</p>
+    </header>
+
+    <!-- QUESTÃO 1 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 01 — Nível Médio (Tradicional)</span>
+        <p class="enunciado">O Art. 14 da Lei de Diretrizes e Bases da Educação Nacional (LDB) estipula que os sistemas de ensino definirão as normas da gestão democrática do ensino público na educação básica. Assinale a alternativa que contempla corretamente os princípios fundamentais que devem balizar tal normatização, nos termos exatos da lei:</p>
+        
+        <div class="opcoes" data-correta="B">
+            <div class="opcao" data-letra="A">A) Participação exclusiva dos profissionais da educação na elaboração do projeto pedagógico, sendo vedada a ingerência da comunidade escolar nas decisões de cunho administrativo.</div>
+            <div class="opcao" data-letra="B">B) Participação dos profissionais da educação na elaboração do projeto pedagógico da escola e participação das comunidades escolar e local em conselhos escolares ou equivalentes.</div>
+            <div class="opcao" data-letra="C">C) Gestão paritária dos recursos financeiros mediante subordinação do conselho escolar ao dirigente máximo da Secretaria de Educação respectiva.</div>
+            <div class="opcao" data-letra="D">D) Participação comunitária restrita à fiscalização da merenda escolar e da infraestrutura, preservando-se a elaboração do projeto pedagógico como monopólio da direção.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa B</strong>. A LDB, em seu art. 14, incisos I e II, consagra expressamente dois princípios para a gestão democrática: a participação dos profissionais da educação na elaboração do projeto pedagógico da escola, e a participação das comunidades escolar e local em conselhos escolares ou equivalentes. Os distratores limitam indevidamente (A e D) ou inventam subordinações não previstas (C).
+        </div>
+    </div>
+
+    <!-- QUESTÃO 2 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 02 — Nível Difícil (Contemplação Múltipla)</span>
+        <p class="enunciado">A respeito da composição dos sistemas de ensino estabelecida na LDB (Artigos 16 a 18), avalie as seguintes proposições atinentes às competências federativas:</p>
+        
+        <div class="bloco-itens">
+            <p>I. O sistema federal de ensino compreende as instituições de ensino mantidas pela União e as instituições de educação superior mantidas pela iniciativa privada.</p>
+            <p>II. Os sistemas estaduais e do Distrito Federal compreendem, entre outras, as instituições de ensino fundamental e médio criadas e mantidas pela iniciativa privada.</p>
+            <p>III. Os sistemas municipais de ensino compreendem as instituições do ensino fundamental, médio e de educação infantil mantidas pelo Poder Público municipal, bem como as instituições de educação infantil criadas e mantidas pela iniciativa privada.</p>
+            <p>IV. Aos Municípios é imposta a obrigação irrenunciável de compor sistema próprio de ensino, sendo terminantemente proibida a sua integração ao sistema estadual.</p>
+        </div>
+
+        <p class="enunciado">Estão em plena conformidade com a LDB apenas as proposições:</p>
+
+        <div class="opcoes" data-correta="C">
+            <div class="opcao" data-letra="A">A) I e II.</div>
+            <div class="opcao" data-letra="B">B) II e III.</div>
+            <div class="opcao" data-letra="C">C) I, II e III.</div>
+            <div class="opcao" data-letra="D">D) II, III e IV.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa C</strong>. 
+            - O Item I é exato (Art. 16, I e II). O sistema federal cuida da educação superior privada.
+            - O Item II é exato (Art. 17, II e III). O Estado absorve o ensino fundamental e médio privados.
+            - O Item III é exato (Art. 18, I e II). Os municípios cuidam da sua rede pública e da educação infantil (creches e pré-escolas) privada.
+            - O Item IV é FALSO. O parágrafo único do Art. 11 permite que os municípios se integrem ao sistema estadual ou componham com ele um sistema único.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 3 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 03 — Nível Médio (Tradicional)</span>
+        <p class="enunciado">O Art. 21 da LDB apresenta o desenho estrutural máximo da educação no Brasil. Conforme a literalidade do dispositivo que delineia os níveis escolares, a educação escolar compõe-se precipuamente de:</p>
+        
+        <div class="opcoes" data-correta="C">
+            <div class="opcao" data-letra="A">A) Educação básica, formada exclusivamente pelo ensino fundamental e médio, e educação superior.</div>
+            <div class="opcao" data-letra="B">B) Educação infantil, ensino fundamental, ensino médio e ensino técnico-profissionalizante.</div>
+            <div class="opcao" data-letra="C">C) Educação básica, formada pela educação infantil, ensino fundamental e ensino médio, e educação superior.</div>
+            <div class="opcao" data-letra="D">D) Educação primária, secundária e terciária, de oferta obrigatória e gratuita em estabelecimentos oficiais.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa C</strong>. A questão aborda a espinha dorsal da LDB (Art. 21). A educação escolar divide-se em dois níveis: 1) Educação Básica (que se subdivide em três etapas: educação infantil, ensino fundamental e ensino médio) e 2) Educação Superior. Modalidades (como educação profissional, EJA, especial) não são níveis da estrutura formal definida no art. 21.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 4 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 04 — Nível Difícil (Contemplação Múltipla)</span>
+        <p class="enunciado">O Art. 24 da LDB determina regras comuns que organizam a educação básica, nos níveis fundamental e médio. À luz da redação legal, avalie os seguintes itens:</p>
+        
+        <div class="bloco-itens">
+            <p>I. A carga horária mínima anual será de oitocentas horas para o ensino fundamental e para o ensino médio, distribuídas por um mínimo de duzentos dias de efetivo trabalho escolar, incluindo-se o tempo reservado aos exames finais, quando houver.</p>
+            <p>II. A classificação em qualquer série ou etapa, exceto a primeira do ensino fundamental, pode ser feita por promoção, por transferência, ou independentemente de escolarização anterior, mediante avaliação feita pela escola.</p>
+            <p>III. Nos estabelecimentos que adotam a progressão regular por série, o regimento escolar pode admitir formas de progressão parcial, desde que preservada a sequência do currículo, observadas as normas do respectivo sistema de ensino.</p>
+        </div>
+
+        <p class="enunciado">As disposições compatíveis com o Art. 24 da LDB são apenas:</p>
+
+        <div class="opcoes" data-correta="D">
+            <div class="opcao" data-letra="A">A) I e II.</div>
+            <div class="opcao" data-letra="B">B) I e III.</div>
+            <div class="opcao" data-letra="C">C) Apenas a II.</div>
+            <div class="opcao" data-letra="D">D) II e III.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa D</strong>. O item I está INCORRETO por um detalhe clássico de prova: a lei expressamente afirma "EXCLUINDO-SE o tempo reservado aos exames finais, quando houver" (Art. 24, I). Os itens II (Art. 24, II) e III (Art. 24, III) trazem a literalidade da lei, admitindo a classificação sem escolarização anterior mediante avaliação, e a possibilidade de progressão parcial.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 5 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 05 — Nível Difícil (Tradicional)</span>
+        <p class="enunciado">No tocante aos critérios de avaliação e verificação do rendimento escolar, regras estritas são impostas pelo Art. 24, Inciso V, da LDB, visando um acompanhamento formativo do discente. Assinale a afirmativa que espelha corretamente os ditames legais sobre o tema:</p>
+        
+        <div class="opcoes" data-correta="A">
+            <div class="opcao" data-letra="A">A) A avaliação do desempenho do aluno deve ser contínua e cumulativa, com prevalência dos aspectos qualitativos sobre os quantitativos e dos resultados ao longo do período sobre os de eventuais provas finais.</div>
+            <div class="opcao" data-letra="B">B) O controle de frequência é atribuição exclusiva das Secretarias de Educação, exigindo-se frequência mínima de 70% (setenta por cento) do total de horas letivas para aprovação.</div>
+            <div class="opcao" data-letra="C">C) Os estudos de recuperação, de obrigatoriedade das instituições de ensino, devem ser disciplinados unicamente para o final do período letivo, garantindo a equalização do conhecimento.</div>
+            <div class="opcao" data-letra="D">D) É facultado à escola reter o aluno por déficit de frequência mesmo que este não atinja o mínimo legal, desde que os resultados qualitativos de suas avaliações atestem proficiência.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa A</strong>. É a redação ipsis litteris do Art. 24, V, alínea "a". Os distratores contêm erros pontuais: B erra na porcentagem de frequência (o correto é 75% pelo inciso VI, e o controle é da escola, não da Secretaria) e C erra no período da recuperação, que a lei define como "de preferência paralelos ao período letivo" (alínea "e"). A D é nula pois não há previsão legal para perdoar déficit de frequência inferior a 75%.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 6 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 06 — Nível Médio (Contemplação Múltipla)</span>
+        <p class="enunciado">De acordo com o Art. 20 da LDB, as instituições privadas de ensino enquadram-se em categorias específicas de acordo com a sua natureza institucional, mantenedora e propósitos. Julgue os enquadramentos abaixo:</p>
+        
+        <div class="bloco-itens">
+            <p>I. Particulares em sentido estrito são aquelas instituídas e mantidas por uma ou mais pessoas físicas ou jurídicas de direito privado que não apresentem as características previstas para as outras categorias (filantrópicas, comunitárias, confessionais).</p>
+            <p>II. Comunitárias são as instituídas por grupos de pessoas físicas ou por uma ou mais pessoas jurídicas, inclusive cooperativas de educadores, que incluam na sua entidade mantenedora representantes da comunidade.</p>
+            <p>III. Confessionais são aquelas que atendem a orientação confessional e ideologia específicas e ao disposto em lei.</p>
+        </div>
+
+        <p class="enunciado">Identifique a alternativa que apresenta os itens com fundamentação legal correta:</p>
+
+        <div class="opcoes" data-correta="B">
+            <div class="opcao" data-letra="A">A) I e II, apenas.</div>
+            <div class="opcao" data-letra="B">B) I, II e III.</div>
+            <div class="opcao" data-letra="C">C) II e III, apenas.</div>
+            <div class="opcao" data-letra="D">D) I e III, apenas.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa B</strong>. Todas as afirmativas representam corretamente a taxonomia das instituições privadas preconizada no Art. 20 da LDB. Particulares (inciso I); Comunitárias (inciso II); e Confessionais (inciso III). As filantrópicas (inciso IV) complementam o quadro, devendo atuar na forma da lei específica.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 7 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 07 — Nível Médio/Difícil (Tradicional)</span>
+        <p class="enunciado">O Art. 23 da LDB flexibiliza a organização da educação básica, permitindo que ela se organize em séries anuais, períodos semestrais, ciclos, alternância regular de períodos de estudos, grupos não seriados, com base na idade, na competência e em outros critérios. Contudo, a adoção de formas diversas de organização está condicionada a um pressuposto legal explícito. Qual é este pressuposto?</p>
+        
+        <div class="opcoes" data-correta="A">
+            <div class="opcao" data-letra="A">A) O interesse do processo de aprendizagem, sempre que este assim o recomendar.</div>
+            <div class="opcao" data-letra="B">B) A aprovação unânime do Conselho Nacional de Educação.</div>
+            <div class="opcao" data-letra="C">C) A demonstração contábil de redução de custos operacionais para a rede de ensino.</div>
+            <div class="opcao" data-letra="D">D) A anuência prévia e expressa do Ministério Público Estadual da respectiva comarca.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa A</strong>. Conforme dita o caput do Art. 23 da LDB, a organização da educação básica pode assumir variadas formas (ciclos, módulos, etc.) "sempre que o interesse do processo de aprendizagem assim o recomendar". A flexibilidade garantida pela LDB visa assegurar o pleno desenvolvimento do educando, desburocratizando amarras rígidas quando a pedagogia justificar.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 8 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 08 — Nível Difícil (Contemplação Múltipla)</span>
+        <p class="enunciado">A mobilidade discente e o registro da vida escolar estão garantidos na LDB. Com base nas disposições do Art. 24 acerca de históricos e reclassificações, julgue as asserções:</p>
+        
+        <div class="bloco-itens">
+            <p>I. A escola poderá reclassificar os alunos, inclusive quando se tratar de transferências entre estabelecimentos situados no País e no exterior, tendo como base as normas curriculares gerais.</p>
+            <p>II. O calendário escolar não admite flexibilização temporal, devendo adequar-se incondicionalmente às peculiaridades climáticas sem alterar as férias dos docentes, que permanecem intocáveis.</p>
+            <p>III. Cabe à instituição de ensino expedir históricos escolares, declarações de conclusão de série e diplomas ou certificados de conclusão de cursos, com as especificações cabíveis.</p>
+        </div>
+
+        <p class="enunciado">Está(ão) em total sintonia com o texto legal da LDB apenas a(s) afirmativa(s):</p>
+
+        <div class="opcoes" data-correta="D">
+            <div class="opcao" data-letra="A">A) I, apenas.</div>
+            <div class="opcao" data-letra="B">B) II e III.</div>
+            <div class="opcao" data-letra="C">C) I e II.</div>
+            <div class="opcao" data-letra="D">D) I e III.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa D</strong>. O Item I traduz o § 1º do Art. 24, e o Item III corresponde ao inciso VII do mesmo artigo. O erro do Item II reside no fato de que o calendário escolar *pode* sim ser adequado às peculiaridades locais, inclusive climáticas e econômicas (§ 2º do Art. 23), contanto que não se reduza o número de horas letivas, sem contudo haver proibição absoluta de impactar calendários locais desde que respeitados os direitos laborais.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 9 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 09 — Nível Difícil (Tradicional)</span>
+        <p class="enunciado">No que concerne à gestão e ao padrão de qualidade das unidades escolares públicas de educação básica, o Art. 15 da LDB determina aos sistemas de ensino a responsabilidade de assegurar-lhes progressivos graus de autonomia. Assinale a alternativa que elenca corretamente as três esferas dessa autonomia:</p>
+        
+        <div class="opcoes" data-correta="A">
+            <div class="opcao" data-letra="A">A) Autonomia pedagógica, administrativa e de gestão financeira.</div>
+            <div class="opcao" data-letra="B">B) Autonomia política, curricular e disciplinar.</div>
+            <div class="opcao" data-letra="C">C) Autonomia administrativa, orçamentária e legislativa.</div>
+            <div class="opcao" data-letra="D">D) Autonomia pedagógica, disciplinar e sindical.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa A</strong>. É o texto literal do art. 15 da LDB: "Os sistemas de ensino assegurarão às unidades escolares públicas de educação básica que os integram progressivos graus de autonomia pedagógica e administrativa e de gestão financeira, observadas as normas gerais de direito financeiro público". Trata-se do tripé que garante à escola capacidade de autogestão dentro do sistema estatal.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 10 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 10 — Nível Médio/Difícil (Contemplação Múltipla)</span>
+        <p class="enunciado">A LDB estabelece um objetivo norteador denso para a principal etapa da educação escolar. Analise as afirmativas abaixo quanto às finalidades da educação básica (Art. 22) e aos parâmetros de qualidade (Art. 25):</p>
+        
+        <div class="bloco-itens">
+            <p>I. A educação básica tem por finalidades desenvolver o educando, assegurar-lhe a formação comum indispensável para o exercício da cidadania e fornecer-lhe meios para progredir no trabalho e em estudos posteriores.</p>
+            <p>II. A educação básica é indutora da especialização precoce, devendo preparar o discente preferencialmente e de forma imediata para o mercado de trabalho industrial.</p>
+            <p>III. Será objetivo permanente das autoridades responsáveis alcançar relação adequada entre o número de alunos e o professor, a carga horária e as condições materiais do estabelecimento.</p>
+        </div>
+
+        <p class="enunciado">Em face da legislação, estão corretas apenas as proposições:</p>
+
+        <div class="opcoes" data-correta="B">
+            <div class="opcao" data-letra="A">A) I e II.</div>
+            <div class="opcao" data-letra="B">B) I e III.</div>
+            <div class="opcao" data-letra="C">C) II e III.</div>
+            <div class="opcao" data-letra="D">D) Apenas a I.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa B</strong>. O Item I é a transcrição fiel do Art. 22, o grande pilar formativo e cidadão da LDB. O Item III reflete a regra de qualidade disposta no Art. 25. O Item II está profundamente equivocado, pois a LDB (como regra da educação básica) afasta a "especialização precoce" e o determinismo utilitarista do mercado, focando em "formação comum indispensável" e "progredir em estudos posteriores".
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Simulado Especialista LDB - Padrão FUNECE / Concurso SEDUC CE. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    function verificarResposta(opcaoClicada) {
+        // Seleciona o container das opções da questão correspondente
+        const containerOpcoes = opcaoClicada.parentElement;
+        
+        // Bloqueia execução caso a questão já tenha sido respondida
+        if (containerOpcoes.classList.contains('desabilitada')) {
+            return;
+        }
+
+        const letraSelecionada = opcaoClicada.getAttribute('data-letra');
+        const letraGabarito = containerOpcoes.getAttribute('data-correta');
+        const listaOpcoes = containerOpcoes.querySelectorAll('.opcao');
+
+        listaOpcoes.forEach(opcao => {
+            const letra = opcao.getAttribute('data-letra');
+            
+            // Destaca a alternativa que é o gabarito correto em verde
+            if (letra === letraGabarito) {
+                opcao.classList.add('correta');
+            }
+            
+            // Se o usuário errou, destaca a alternativa clicada em vermelho
+            if (letra === letraSelecionada && letraSelecionada !== letraGabarito) {
+                opcao.classList.add('incorreta');
+            }
+        });
+
+        // Adiciona classe para bloquear futuros cliques nesta questão
+        containerOpcoes.classList.add('desabilitada');
+
+        // Exibe o comentário pedagógico oculto
+        const blocoQuestao = containerOpcoes.parentElement;
+        const comentarioDoProfessor = blocoQuestao.querySelector('.comentario');
+        if (comentarioDoProfessor) {
+            comentarioDoProfessor.style.display = 'block';
+        }
+    }
+
+    // Adiciona o evento de clique a todas as opções geradas
+    document.querySelectorAll('.opcao').forEach(botao => {
+        botao.addEventListener('click', function() {
+            verificarResposta(this);
+        });
+    });
+</script>
+
+</body>
+</html>

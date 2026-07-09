@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado Interativo LDB (Artigos 12 e 13) - Concurso SEDUC CE</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #0f766e;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --text-color: #1e293b;
+            --correct-bg: #d4edda;
+            --correct-border: #c3e6cb;
+            --correct-text: #155724;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #f5c6cb;
+            --incorrect-text: #721c24;
+            --border-color: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 35px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .questao {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+
+        .questao-numero {
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .enunciado {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .bloco-itens {
+            background-color: #f1f5f9;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .bloco-itens p {
+            margin: 10px 0;
+            font-size: 14.5px;
+            text-align: justify;
+        }
+
+        .opcoes {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .opcao {
+            padding: 14px 18px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            background-color: #fafafa;
+            display: flex;
+            align-items: flex-start;
+            text-align: justify;
+        }
+
+        .opcao:hover {
+            background-color: #f1f5f9;
+            border-color: #94a3b8;
+            transform: translateX(3px);
+        }
+
+        /* Classes de Interatividade via JS */
+        .opcao.correta {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-border) !important;
+            color: var(--correct-text) !important;
+            font-weight: 600;
+        }
+
+        .opcao.incorreta {
+            background-color: var(--incorrect-bg) !important;
+            border-color: var(--incorrect-border) !important;
+            color: var(--incorrect-text) !important;
+        }
+
+        .desabilitada .opcao {
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+
+        .desabilitada .opcao:hover {
+            transform: none;
+        }
+
+        .comentario {
+            display: none;
+            margin-top: 25px;
+            padding: 18px;
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            border-radius: 0 6px 6px 0;
+            font-size: 14.5px;
+            color: #1e3a8a;
+            text-align: justify;
+        }
+
+        .comentario strong {
+            color: #1d4ed8;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 25px;
+            font-size: 13.5px;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Simulado Especialista LDB — Artigos 12 e 13</h1>
+        <p>Foco Estratégico: Concurso SEDUC CE — Padrão de Rigor Técnico FUNECE/UECE</p>
+    </header>
+
+    <!-- QUESTÃO 1 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 01 — Nível Médio/Difícil (Tradicional)</span>
+        <p class="enunciado">À luz das incumbências dos estabelecimentos de ensino positivadas na Lei de Diretrizes e Bases da Educação Nacional (Lei nº 9.394/1996), especificamente no que concerne ao controle do fluxo escolar e ao combate à evasão, assinale a opção que indica corretamente o parâmetro legal que enseja a notificação compulsória ao Conselho Tutelar do Município:</p>
+        
+        <div class="opcoes" data-correta="C">
+            <div class="opcao" data-letra="A">A) Quantidade de faltas consecutivas que superem 20% (vinte por cento) das aulas dadas no bimestre.</div>
+            <div class="opcao" data-letra="B">B) Quantidade de faltas que atinja 50% (cinquenta por cento) do percentual permitido em lei.</div>
+            <div class="opcao" data-letra="C">C) Quantidade de faltas acima de 30% (trinta por cento) do percentual permitido em lei.</div>
+            <div class="opcao" data-letra="D">D) Quantidade de faltas cumuladas que represente 25% (vinte e cinco por cento) do total de horas letivas da matriz curricular.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa C</strong>. A questão exige a literalidade do Art. 12, Inciso VIII, da LDB, modificado por legislação posterior (Lei nº 13.803/2019), que reduziu o patamar histórico de 50% para 30%. O texto legal determina expressamente a notificação à relação de alunos que apresentem "quantidade de faltas acima de 30% (trinta por cento) do percentual permitido em lei". As demais alternativas trazem prazos e percentuais fictícios ou desatualizados.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 2 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 02 — Nível Difícil (Contemplação Múltipla)</span>
+        <p class="enunciado">Considere as obrigações e prerrogativas funcionais inerentes ao corpo docente e às instituições escolares. Analise as proposições a seguir em face do Art. 13 da LDB:</p>
+        
+        <div class="bloco-itens">
+            <p>I. Elaborar e cumprir plano de trabalho, em consonância estrita com a proposta pedagógica do estabelecimento de ensino.</p>
+            <p>II. Administrar o pessoal docente e gerir de forma autônoma os recursos materiais e financeiros alocados à sua respectiva unidade escolar.</p>
+            <p>III. Zelar de forma intransigente e contínua pela aprendizagem dos alunos.</p>
+            <p>IV. Ministrar os dias letivos e horas-aula estabelecidos, participando integralmente, ademais, dos períodos dedicados ao planejamento, à avaliação e ao desenvolvimento profissional.</p>
+        </div>
+
+        <p class="enunciado">De acordo com a repartição de competências da LDB, constituem incumbências exclusivas dos docentes apenas as afirmações contidas em:</p>
+
+        <div class="opcoes" data-correta="D">
+            <div class="opcao" data-letra="A">A) I e II.</div>
+            <div class="opcao" data-letra="B">B) II, III e IV.</div>
+            <div class="opcao" data-letra="C">C) I, II e III.</div>
+            <div class="opcao" data-letra="D">D) I, III e IV.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa D</strong>. O item II está incorreto porque descreve uma incumbência do *estabelecimento de ensino* (Art. 12, Inciso II: "administrar seu pessoal e seus recursos materiais e financeiros"), e não do professor. Os itens I, III e IV reproduzem fielmente os Incisos II, III e V do Art. 13 da LDB, constituindo obrigações legais atribuídas diretamente aos docentes.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 3 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 03 — Nível Médio (Tradicional)</span>
+        <p class="enunciado">O Artigo 12 da LDB estabelece obrigações claras para os estabelecimentos de ensino no que concerne ao relacionamento com os núcleos familiares e à transparência pedagógica. Sobre o dever de informação, assinale a afirmativa juridicamente correta:</p>
+        
+        <div class="opcoes" data-correta="B">
+            <div class="opcao" data-letra="A">A) A obrigação de informar sobre frequência e rendimento restringe-se ao genitor que detém a guarda judicial e formal do discente, desobrigando a escola em relação ao pai ou mãe não convivente.</div>
+            <div class="opcao" data-letra="B">B) Os estabelecimentos de ensino devem informar pai e mãe, conviventes ou não com seus filhos, e, se for o caso, os responsáveis legais, sobre a frequência e o rendimento dos alunos, bem como sobre a execução da proposta pedagógica da escola.</div>
+            <div class="opcao" data-letra="C">C) O dever de informar limita-se estritamente aos aspectos de rendimento acadêmico semestral, sendo facultativa a omissão dos dados de frequência escolar cotidiana.</div>
+            <div class="opcao" data-letra="D">D) A prestação de informações sobre a proposta pedagógica deve ser direcionada apenas ao Conselho Escolar, eximindo a escola de detalhá-la individualmente aos pais.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa B</strong>. Trata-se da redação literal do Art. 12, Inciso VII, da LDB (com redação dada pela Lei nº 12.013/2009). A lei assegura o direito de informação a ambos os genitores, independentemente de coabitação ou convívio ("conviventes ou não com seus filhos"). Os distratores criam exceções e limitações não amparadas pelo texto legal.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 4 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 04 — Nível Difícil (Contemplação Múltipla)</span>
+        <p class="enunciado">As alterações legislativas recentes integraram novas obrigações ao Art. 12 da LDB, ampliando o papel dos estabelecimentos de ensino na salvaguarda social, segurança e gestão democrática. Avalie as proposições abaixo:</p>
+        
+        <div class="bloco-itens">
+            <p>I. Promover medidas de conscientização, de prevenção e de combate a todos os tipos de violência, especialmente a intimidação sistemática (bullying), no âmbito das escolas.</p>
+            <p>II. Instituir, na forma da lei de que trata o art. 14, os Conselhos Escolares.</p>
+            <p>III. Estabelecer ações articuladas e permanentes destinadas a promover a cultura de paz nas escolas.</p>
+            <p>IV. Promover ambiente escolar seguro, adotando estratégias de prevenção e enfrentamento ao uso ou dependência de drogas.</p>
+        </div>
+
+        <p class="enunciado">Em conformidade com as atualizações vigentes do Art. 12 da LDB, estão corretas as proposições:</p>
+
+        <div class="opcoes" data-correta="C">
+            <div class="opcao" data-letra="A">A) I e III apenas.</div>
+            <div class="opcao" data-letra="B">B) II, III e IV apenas.</div>
+            <div class="opcao" data-letra="C">C) I, II, III e IV.</div>
+            <div class="opcao" data-letra="D">D) I, II e IV apenas.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa C</strong>. Todas as proposições são verdadeiras e refletem a legislação atualizada: o Item I é o Inciso IX (Lei nº 13.663/2018); o Item II é o Inciso XI (Lei nº 14.644/2023); o Item III é o Inciso X (Lei nº 13.663/2018); e o Item IV é o recente Inciso X-A (Lei nº 14.824/2024), que incluiu o dever de criar ambientes seguros contra a dependência de drogas.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 5 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 05 — Nível Médio/Difícil (Tradicional)</span>
+        <p class="enunciado">No modelo organizativo e funcional estabelecido pela LDB, as atribuições de supervisão e zelo pelo cumprimento das obrigações laborais internas do corpo docente são distribuídas de maneira precisa. De quem é a competência expressa para "velar pelo cumprimento do plano de trabalho de cada docente"?</p>
+        
+        <div class="opcoes" data-correta="B">
+            <div class="opcao" data-letra="A">A) Da Secretaria de Educação do Estado, por meio das coordenadorias regionais de ensino.</div>
+            <div class="opcao" data-letra="B">B) Dos estabelecimentos de ensino, na figura de sua gestão pedagógico-administrativa.</div>
+            <div class="opcao" data-letra="C">C) Dos Conselhos Escolares e Fóruns de Conselhos de forma paritária.</div>
+            <div class="opcao" data-letra="D">D) Do Conselho Estadual de Educação (CEE), mediante inspeções ordinárias anuais.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa B</strong>. De acordo com o Art. 12, Inciso IV, da LDB, incumbe aos *estabelecimentos de ensino* "velar pelo cumprimento do plano de trabalho de cada docente". Trata-se de uma atribuição de controle e acompanhamento interno da própria escola sobre o trabalho de seus professores. Os distratores tentam deslocar essa responsabilidade para órgãos externos ou colegiados.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 6 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 06 — Nível Difícil (Contemplação Múltipla)</span>
+        <p class="enunciado">A elaboração e a execução da proposta pedagógica, bem como a articulação comunitária, envolvem diferentes níveis de participação de acordo com os Artigos 12 e 13 da LDB. Avalie os itens abaixo:</p>
+        
+        <div class="bloco-itens">
+            <p>I. Elaborar e executar sua proposta pedagógica constitui uma incumbência direta do estabelecimento de ensino.</p>
+            <p>II. Participar da elaboração da proposta pedagógica do estabelecimento de ensino configura uma incumbência legal do docente.</p>
+            <p>III. Articular-se com as famílias e a comunidade, criando processos de integração da sociedade com a escola, é uma atribuição exclusiva dos professores, vedada a ingerência dos diretores.</p>
+            <p>IV. Colaborar com as atividades de articulação da escola com as famílias e a comunidade constitui incumbência conferida aos docentes.</p>
+        </div>
+
+        <p class="enunciado">A análise sistemática dos dispositivos legais revela que estão corretas apenas as proposições:</p>
+
+        <div class="opcoes" data-correta="A">
+            <div class="opcao" data-letra="A">A) I, II e IV.</div>
+            <div class="opcao" data-letra="B">B) I, II e III.</div>
+            <div class="opcao" data-letra="C">C) II e IV.</div>
+            <div class="opcao" data-letra="D">D) I, II, III e IV.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa A</strong>. Vamos destrinchar o erro do item III: articular-se com famílias e comunidade é dever da instituição (Art. 12, VI). Ao professor cabe "colaborar" com essa articulação (Art. 13, VI), e não exercer uma exclusividade absoluta com vedação à diretoria. Os itens I (Art. 12, I), II (Art. 13, I) e IV (Art. 13, VI) estão perfeitamente afinados com as respectivas redações da lei.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 7 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 07 — Nível Médio (Tradicional)</span>
+        <p class="enunciado">O exercício profissional docente é condicionado a deveres estritos que estruturam o calendário e a qualidade do ensino. Conforme as disposições textuais do Artigo 13 da LDB, assinale a opção que indica corretamente o dever do professor relativo à carga horária e ao aperfeiçoamento:</p>
+        
+        <div class="opcoes" data-correta="C">
+            <div class="opcao" data-letra="A">A) Ministrar exclusivamente as horas-aula em sala de aula, ficando desobrigado de atividades de planejamento externo.</div>
+            <div class="opcao" data-letra="B">B) Cumprir os dias letivos estipulados pelo Estado, facultando-se a ausência nos períodos de avaliação institucional.</div>
+            <div class="opcao" data-letra="C">C) Ministrar os dias letivos e horas-aula estabelecidos, além de participar integralmente dos períodos dedicados ao planejamento, à avaliação e ao desenvolvimento profissional.</div>
+            <div class="opcao" data-letra="D">D) Delegar as atividades de desenvolvimento profissional a programas complementares de livre escolha, sem vinculação obrigatória com a rotina escolar.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa C</strong>. A questão cobra o Inciso V do Art. 13 da LDB. O legislador fixou o comparecimento e a atuação integral do docente não apenas no ato da docência direta (ministrar aulas), mas também nas dimensões coletivas e formativas: planejamento, avaliação e desenvolvimento profissional. As outras opções relativizam esse compromisso integral.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 8 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 08 — Nível Difícil (Contemplação Múltipla)</span>
+        <p class="enunciado">Uma das principais distinções exploradas pelas bancas examinadoras diz respeito aos verbos de comando que diferenciam as responsabilidades da instituição escolar das responsabilidades do docente no que tange ao rendimento discente. Avalie os itens abaixo:</p>
+        
+        <div class="bloco-itens">
+            <p>I. Prover meios para a recuperação dos alunos de menor rendimento constitui incumbência legal atribuída aos estabelecimentos de ensino.</p>
+            <p>II. Estabelecer estratégias de recuperação para os alunos de menor rendimento constitui dever legal imposto aos docentes.</p>
+            <p>III. Zelar pela aprendizagem dos alunos constitui incumbência comum e idêntica expressa no rol do Art. 12 tanto para estabelecimentos de ensino quanto para docentes no Art. 13.</p>
+        </div>
+
+        <p class="enunciado">À luz da LDB, está(ão) correta(s) apenas a(s) proposição(ões):</p>
+
+        <div class="opcoes" data-correta="A">
+            <div class="opcao" data-letra="A">A) I e II.</div>
+            <div class="opcao" data-letra="B">B) I e III.</div>
+            <div class="opcao" data-letra="C">C) II e III.</div>
+            <div class="opcao" data-letra="D">D) II apenas.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa A</strong>. Esta é uma pegadinha clássica da FUNECE baseada na sutil diferença terminológica da lei: o estabelecimento de ensino deve *prover os meios* (Art. 12, V), ou seja, dar as condições materiais e organizacionais; enquanto o docente deve *estabelecer as estratégias* pedagógicas (Art. 13, IV). O item III está errado porque "zelar pela aprendizagem dos alunos" está previsto *apenas* como incumbência expressa do docente (Art. 13, III), não constando no rol textual do Art. 12 da LDB.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 9 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 09 — Nível Médio/Difícil (Tradicional)</span>
+        <p class="enunciado">Suponha que uma escola pública da rede estadual do Ceará tenha negligenciado a organização dos registros de seus bens patrimoniais e a aplicação de verbas descentralizadas recebidas pelo fundo escolar. Conforme o regramento das competências funcionais estipulado pela LDB, a responsabilidade administrativa direta por "administrar seu pessoal e seus recursos materiais e financeiros" é de competência:</p>
+        
+        <div class="opcoes" data-correta="A">
+            <div class="opcao" data-letra="A">A) Dos próprios estabelecimentos de ensino.</div>
+            <div class="opcao" data-letra="B">B) Do corpo docente reunido em conselho de classe.</div>
+            <div class="opcao" data-letra="C">C) Unicamente do Secretário de Educação, de forma centralizada.</div>
+            <div class="opcao" data-letra="D">D) Da Coordenadoria de Gestão Financeira da Seduc, eximindo a escola.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa A</strong>. O Art. 12, Inciso II, da LDB estatui expressamente que os *estabelecimentos de ensino* possuem a incumbência de "administrar seu pessoal e seus recursos materiais e financeiros". Isso confere base legal para a autonomia de gestão escolar, respeitadas as normas do respectivo sistema de ensino. As demais opções ignoram essa atribuição institucional da unidade escolar.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 10 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 10 — Nível Difícil (Contemplação Múltipla)</span>
+        <p class="enunciado">No que tange às novas atribuições correlatas à proteção à integridade física e psicológica nas dependências escolares (Art. 12), analise as obrigações institucionais adicionadas ao texto da LDB:</p>
+        
+        <div class="bloco-itens">
+            <p>I. Notificar ao Conselho Tutelar do Município as ocorrências e os dados relativos a casos de violência que envolvam seus alunos, conforme regulamentação própria.</p>
+            <p>II. Delegar de forma irrestrita aos docentes a responsabilidade civil e jurídica de gerir as medidas institucionais de combate ao bullying.</p>
+            <p>III. Instituir obrigatoriamente os Conselhos Escolares como instâncias de fortalecimento da gestão participativa e da segurança local.</p>
+        </div>
+
+        <p class="enunciado">À luz das normas gerais vigentes na LDB para os estabelecimentos de ensino, está(ão) correta(s) apenas a(s) proposição(ões):</p>
+
+        <div class="opcoes" data-correta="B">
+            <div class="opcao" data-letra="A">A) I e II.</div>
+            <div class="opcao" data-letra="B">B) I e III.</div>
+            <div class="opcao" data-letra="C">C) III apenas.</div>
+            <div class="opcao" data-letra="D">D) I, II e III.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa B</strong>. Analisemos as afirmativas:
+            - O item I está perfeitamente correto e baseia-se no Art. 12, Inciso VIII, alínea "b" da LDB, que trata do dever de notificação de casos de violência.
+            - O item II está incorreto porque a responsabilidade de promover medidas contra a violência e intimidação sistemática (bullying) é do *estabelecimento de ensino* (Art. 12, IX) enquanto pessoa jurídica e unidade administrativa, não podendo ser delegada de forma irrestrita ou pessoal aos professores como encargo individual.
+            - O item III está correto e ampara-se no Art. 12, Inciso XI (incluído pela Lei nº 14.644/2023). Portanto, apenas I e III estão corretos.
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Simulado Especialista LDB - Padrão FUNECE / Concurso SEDUC CE. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    function verificarResposta(opcaoClicada) {
+        // Encontra o bloco de opções da questão específica
+        const containerOpcoes = opcaoClicada.parentElement;
+        
+        // Se a questão já foi respondida, bloqueia novos cliques
+        if (containerOpcoes.classList.contains('desabilitada')) {
+            return;
+        }
+
+        const letraSelecionada = opcaoClicada.getAttribute('data-letra');
+        const letraGabarito = containerOpcoes.getAttribute('data-correta');
+        const listaOpcoes = containerOpcoes.querySelectorAll('.opcao');
+
+        listaOpcoes.forEach(opcao => {
+            const letra = opcao.getAttribute('data-letra');
+            
+            // Pinta a correta de verde
+            if (letra === letraGabarito) {
+                opcao.classList.add('correta');
+            }
+            
+            // Se errou, pinta a escolhida de vermelho
+            if (letra === letraSelecionada && letraSelecionada !== letraGabarito) {
+                opcao.classList.add('incorreta');
+            }
+        });
+
+        // Desabilita a questão para evitar novas tentativas
+        containerOpcoes.classList.add('desabilitada');
+
+        // Mostra o comentário pedagógico oculto
+        const blocoQuestao = containerOpcoes.parentElement;
+        const comentarioDoProfessor = blocoQuestao.querySelector('.comentario');
+        if (comentarioDoProfessor) {
+            comentarioDoProfessor.style.display = 'block';
+        }
+    }
+
+    // Vincula o evento de clique em todas as opções do simulado
+    document.querySelectorAll('.opcao').forEach(botao => {
+        botao.addEventListener('click', function() {
+            verificarResposta(this);
+        });
+    });
+</script>
+
+</body>
+</html>

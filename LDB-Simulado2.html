@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado Interativo LDB - Concurso SEDUC CE (Banca FUNECE)</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #0f766e;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --text-color: #1e293b;
+            --correct-bg: #d4edda;
+            --correct-border: #c3e6cb;
+            --correct-text: #155724;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #f5c6cb;
+            --incorrect-text: #721c24;
+            --border-color: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .questao {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+
+        .questao-numero {
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .enunciado {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .bloco-itens {
+            background-color: #f1f5f9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .bloco-itens p {
+            margin: 8px 0;
+            font-size: 14px;
+            text-align: justify;
+        }
+
+        .opcoes {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .opcao {
+            padding: 14px 18px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            background-color: #fafafa;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .opcao:hover {
+            background-color: #f1f5f9;
+            border-color: #94a3b8;
+            transform: translateX(3px);
+        }
+
+        /* Classes de Interatividade Dinâmica via JS */
+        .opcao.correta {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-border) !important;
+            color: var(--correct-text) !important;
+            font-weight: 600;
+        }
+
+        .opcao.incorreta {
+            background-color: var(--incorrect-bg) !important;
+            border-color: var(--incorrect-border) !important;
+            color: var(--incorrect-text) !important;
+        }
+
+        .desabilitada .opcao {
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+
+        .desabilitada .opcao:hover {
+            transform: none;
+        }
+
+        .comentario {
+            display: none;
+            margin-top: 20px;
+            padding: 18px;
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            border-radius: 0 6px 6px 0;
+            font-size: 14px;
+            color: #1e3a8a;
+            text-align: justify;
+        }
+
+        .comentario strong {
+            color: #1d4ed8;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 13px;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>SIMULADO INTERATIVO DE LEGISLAÇÃO EDUCACIONAL</h1>
+        <p>Foco: Concurso SEDUC CE — LDB (Artigos 6º ao 13) — Padrão FUNECE / UECE</p>
+    </header>
+
+    <!-- QUESTÃO 1 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 01 — Nível Médio/Difícil</span>
+        <p class="enunciado">Conforme as disposições literais e sistemáticas da Lei de Diretrizes e Bases da Educação Nacional (Lei nº 9.394/1996), a escolarização obrigatória e a atuação da iniciativa privada guardam parâmetros normativos rígidos. À luz do Art. 6º e do Art. 7º do referido diploma, assinale a alternativa que expressa corretamente as obrigações e prerrogativas legais correlatas:</p>
+        
+        <div class="opcoes" data-correta="C">
+            <div class="opcao" data-letra="A">A) É dever estrito dos pais ou responsáveis efetuar a matrícula das crianças na educação básica a partir dos 6 (seis) anos de idade, sendo o ensino livre à iniciativa privada desde que comprovada a capacidade de autofinanciamento integral, sem qualquer exceção constitucional.</div>
+            <div class="opcao" data-letra="B">B) À iniciativa privada é franqueada a oferta de ensino, condicionando-se unicamente à autorização prévia de funcionamento emitida pelo respectivo sistema de ensino, prescindindo de avaliações periódicas de qualidade pelo Poder Público.</div>
+            <div class="opcao" data-letra="C">C) O dever dos pais ou responsáveis circunscreve-se à efetivação da matrícula das crianças na educação básica a partir dos 4 (quatro) anos de idade, condicionando-se o ensino na iniciativa privada, dentre outros requisitos, ao cumprimento das normas gerais da educação nacional e do respectivo sistema de ensino.</div>
+            <div class="opcao" data-letra="D">D) A capacidade de autofinanciamento exigida das instituições privadas constitui critério absoluto e insuscetível de mitigação por repasses públicos secundários, devendo ser integralmente aferida e chancelada pela União antes do início das atividades de ensino.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa C</strong>. O Art. 6º estabelece textualmente: "É dever dos pais ou responsáveis efetuar a matrícula das crianças na educação básica a partir dos 4 (quatro) anos de idade". Ademais, o Art. 7º condiciona a iniciativa privada ao cumprimento das normas gerais e do respectivo sistema (Inciso I), além de autorização e avaliação de qualidade (Inciso II) e capacidade de autofinanciamento (Inciso III), com a ressalva expressa do art. 213 da CF. Os distratores trazem erros cronológicos (6 anos na 'A') ou suprimem exigências legais cruciais (como a avaliação de qualidade na 'B' e o caráter absoluto na 'D').
+        </div>
+    </div>
+
+    <!-- QUESTÃO 2 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 02 — Nível Difícil</span>
+        <p class="enunciado">O Art. 7º-A da LDB disciplina o exercício do direito à liberdade de consciência e de crença no ambiente escolar. Analise as seguintes proposições acerca das prestações alternativas aplicáveis em caso de ausência motivada por imperativo religioso:</p>
+        
+        <div class="bloco-itens">
+            <p>I. A prova ou aula de reposição deve ser realizada em data alternativa, obrigatoriamente no turno original de estudo do aluno, vedada expressamente a realização em horário diverso mesmo com sua anuência formal.</p>
+            <p>II. É cabível a atribuição de trabalho escrito ou outra modalidade de atividade de pesquisa, com tema, objetivo e data de entrega definidos pela instituição de ensino.</p>
+            <p>III. O cumprimento das formas de prestação alternativa previstas em lei substituirá a obrigação original para todos os efeitos, inclusive para a regularização do registro de frequência do estudante.</p>
+            <p>IV. O regime de garantias instituído pelo Art. 7º-A aplica-se de forma irrestrita a todos os estabelecimentos civis e militares de ensino do território nacional.</p>
+        </div>
+
+        <p class="enunciado">À luz do exposto, estão corretas apenas as proposições:</p>
+
+        <div class="opcoes" data-correta="B">
+            <div class="opcao" data-letra="A">A) I e II.</div>
+            <div class="opcao" data-letra="B">B) II e III.</div>
+            <div class="opcao" data-letra="C">C) III e IV.</div>
+            <div class="opcao" data-letra="D">D) I, II e III.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa B</strong>. Vamos ao exame dos itens:
+            - O item I está incorreto porque o Inciso I do Art. 7º-A faculta a realização em outro horário desde que haja anuência expressa do aluno.
+            - O item II está correto e reflete com exatidão o Inciso II do caput do Art. 7º-A.
+            - O item III está correto, espelhando a literalidade do § 2º: "substituirá a obrigação original para todos os efeitos, inclusive regularização do registro de frequência".
+            - O item IV está incorreto porque o § 4º estatui de forma expressa que as disposições do artigo não se aplicam ao ensino militar.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 3 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 03 — Nível Médio</span>
+        <p class="enunciado">No modelo federativo de organização da educação nacional delineado pela LDB, a articulação entre as esferas governamentais ocorre sob o manto do regime de colaboração. Nos termos do Art. 8º, cabe precipuamente à União a coordenação da política nacional de educação. Assinale a opção que identifica corretamente a tríade funcional atribuída pela lei à instância federal em relação às demais instâncias educacionais:</p>
+        
+        <div class="opcoes" data-correta="B">
+            <div class="opcao" data-letra="A">A) Regulamentar, fiscalizatória e impositiva.</div>
+            <div class="opcao" data-letra="B">B) Normativa, redistributiva e supletiva.</div>
+            <div class="opcao" data-letra="C">C) Consultiva, deliberativa e centralizadora.</div>
+            <div class="opcao" data-letra="D">D) Indutora, judicante e descentralizadora.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa B</strong>. Trata-se da cobrança literal do Art. 8º, § 1º, da LDB, que dita: "Caberá à União a coordenação da política nacional de educação, articulando os diferentes níveis e sistemas e exercendo função normativa, redistributiva e supletiva em relação às demais instâncias educacionais." Qualquer variação dessa tríade funcional descaracteriza o comando legal explícito.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 4 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 04 — Nível Difícil</span>
+        <p class="enunciado">O Art. 9º da LDB pormenoriza as incumbências da União na organização sistêmica da educação. Considere as seguintes obrigações federativas atribuídas a esse ente político:</p>
+        
+        <div class="bloco-itens">
+            <p>I. Elaborar o Plano Nacional de Educação, de forma centralizada e autônoma, outorgando diretrizes imperativas aos Estados e Municípios sem necessidade de colaboração mútua.</p>
+            <p>II. Estabelecer, em colaboração com os Estados, o Distrito Federal e os Municípios, diretrizes e procedimentos para identificação, cadastramento e atendimento, na educação básica e na educação superior, de alunos com altas habilidades ou superdotação.</p>
+            <p>III. Assegurar, em colaboração com os sistemas de ensino, processo nacional de avaliação das instituições e dos cursos de educação profissional técnica e tecnológica.</p>
+            <p>IV. Baixar normas gerais sobre cursos de graduação e pós-graduação.</p>
+        </div>
+
+        <p class="enunciado">A análise técnica e jurídica indica a conformidade com a LDB apenas nos itens:</p>
+
+        <div class="opcoes" data-correta="C">
+            <div class="opcao" data-letra="A">A) I, II e III.</div>
+            <div class="opcao" data-letra="B">B) I e IV.</div>
+            <div class="opcao" data-letra="C">C) II, III e IV.</div>
+            <div class="opcao" data-letra="D">D) II e IV.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa C</strong>. 
+            - O item I contraria o Inciso I do Art. 9º, o qual assevera que o Plano Nacional de Educação é elaborado *em colaboração* com os Estados, o Distrito Federal e os Municípios.
+            - O item II é a redação exata do Inciso IV-A do Art. 9º.
+            - O item III reproduz fielmente o Inciso VII-A (incluído pela recente Lei nº 14.645, de 2023).
+            - O item IV reflete com precisão o Inciso VIII do mesmo artigo. Portanto, II, III e IV estão perfeitos.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 5 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 05 — Nível Médio/Difícil</span>
+        <p class="enunciado">Ao discriminar as competências dos Estados membros no Art. 10 da LDB, o legislador determinou regras de prioridade e de articulação territorial. Com base nesse arcabouço normativo, assinale a assertiva juridicamente correta:</p>
+        
+        <div class="opcoes" data-correta="A">
+            <div class="opcao" data-letra="A">A) Os Estados incumbir-se-ão de assegurar o ensino fundamental e oferecer, com prioridade, o ensino médio a todos que o demandarem.</div>
+            <div class="opcao" data-letra="B">B) Compete exclusivamente aos Estados assumir o transporte escolar de todos os discentes e docentes da educação básica residentes em suas respectivas áreas geográficas, sobrepondo-se às malhas municipais.</div>
+            <div class="opcao" data-letra="C">C) A competência de baixar normas complementares para o ensino restringe-se às diretrizes da União, sendo vedado aos Estados legislar de forma complementar sobre seus próprios sistemas.</div>
+            <div class="opcao" data-letra="D">D) A distribuição proporcional das responsabilidades na oferta do ensino fundamental entre Estados e Municípios deve pautar-se unicamente pelo critério da extensão territorial de cada ente.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa A</strong>. O Inciso VI do Art. 10 determina com clareza a responsabilidade do Estado de assegurar o ensino fundamental e oferecer, com *prioridade*, o ensino médio. O erro da 'B' reside em estender o transporte a toda a educação básica (o Estado assume a rede estadual — Inciso VII). O erro da 'C' nega o Inciso V, que prevê normas complementares estaduais. O erro da 'D' contraria o Inciso II, cujo critério de colaboração baseia-se na população a ser atendida e nos recursos financeiros disponíveis, e não na extensão territorial.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 6 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 06 — Nível Difícil</span>
+        <p class="enunciado">No âmbito das incumbências dos Municípios (Art. 11 da LDB), com as modificações vigentes, analise as condições impostas para a organização de suas respectivas redes de ensino:</p>
+        
+        <div class="bloco-itens">
+            <p>I. Os Municípios devem oferecer a educação infantil em creches e pré-escolas nas zonas urbanas e rurais, em estrita observância à proporção da distribuição populacional.</p>
+            <p>II. A atuação municipal no ensino fundamental constitui uma diretriz de prioridade legal.</p>
+            <p>III. É permitida a atuação dos Municípios em outros níveis de ensino desde que atendidas plenamente as necessidades de sua área de competência, mesmo que com recursos abaixo dos percentuais mínimos constitucionais vinculados.</p>
+            <p>IV. Os Municípios gozam de discricionariedade para optar por se integrar ao sistema estadual de ensino ou compor com ele um sistema único de educação básica.</p>
+        </div>
+
+        <p class="enunciado">Estão em consonância com as regras da LDB apenas as assertivas:</p>
+
+        <div class="opcoes" data-correta="D">
+            <div class="opcao" data-letra="A">A) I e III.</div>
+            <div class="opcao" data-letra="B">B) II e III.</div>
+            <div class="opcao" data-letra="C">C) I, II e III.</div>
+            <div class="opcao" data-letra="D">D) I, II e IV.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa D</strong>. 
+            - O item I e o item II estão corretos nos termos do Inciso V do Art. 11 (com redação dada pela Lei nº 15.369/2026), que preconiza a oferta da educação infantil proporcional e o ensino fundamental como prioridade.
+            - O item III está flagrantemente incorreto, pois a atuação em outros níveis exige, cumulativamente, que as necessidades locais estejam plenamente atendidas E que se utilizem recursos *acima* dos percentuais mínimos vinculados pela CF à manutenção e desenvolvimento do ensino.
+            - O item IV está correto, pois reflete o parágrafo único do Art. 11.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 7 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 07 — Nível Médio/Difícil</span>
+        <p class="enunciado">O Art. 12 da LDB estipula as incumbências destinadas aos estabelecimentos de ensino. Com o advento das atualizações legislativas atinentes ao monitoramento do fluxo escolar e ao combate à violência, as escolas receberam parâmetros objetivos de notificação. Assinale a alternativa que indica o percentual exato de faltas a partir do qual a instituição de ensino tem o dever de notificar o Conselho Tutelar municipal:</p>
+        
+        <div class="opcoes" data-correta="A">
+            <div class="opcao" data-letra="A">A) Quantidade de faltas acima de 30% (trinta por cento) do percentual permitido em lei.</div>
+            <div class="opcao" data-letra="B">B) Quantidade de faltas igual ou superior a 50% (cinquenta por cento) do total de horas letivas.</div>
+            <div class="opcao" data-letra="C">C) Quantidade de faltas cumuladas que superem 25% (vinte e cinco por cento) das aulas dadas.</div>
+            <div class="opcao" data-letra="D">D) Quantidade de faltas que atinja 20% (vinte por cento) do calendário acadêmico anual.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa A</strong>. Conforme o Art. 12, Inciso VIII, alínea "a" (com redação dada pela Lei nº 15.231/2025), compete às escolas notificar ao Conselho Tutelar a relação dos alunos que apresentem quantidade de faltas acima de 30% (trinta por cento) do percentual permitido em lei. Lembre-se de que o patamar histórico de 50% foi reduzido pela legislação para tornar a intervenção da rede de proteção mais precoce.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 8 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 08 — Nível Difícil</span>
+        <p class="enunciado">As esferas de atribuições no ambiente escolar diferenciam as incumbências dos estabelecimentos de ensino (Art. 12) das obrigações dos docentes (Art. 13). Avalie as seguintes ações funcionais sob a ótica dos deveres exclusivos ou compartilhados dos docentes:</p>
+        
+        <div class="bloco-itens">
+            <p>I. Participar da elaboração da proposta pedagógica do estabelecimento de ensino.</p>
+            <p>II. Notificar ao Conselho Tutelar do Município as ocorrências e os dados relativos a casos de violência que envolvam seus alunos, especialmente automutilações e tentativas de suicídio.</p>
+            <p>III. Estabelecer estratégias de recuperação para os alunos de menor rendimento.</p>
+            <p>IV. Colaborar com as atividades de articulação da escola com as famílias e a comunidade.</p>
+        </div>
+
+        <p class="enunciado">De acordo com o Art. 13 da LDB, constituem incumbências dos docentes:</p>
+
+        <div class="opcoes" data-correta="C">
+            <div class="opcao" data-letra="A">A) I, II, III e IV.</div>
+            <div class="opcao" data-letra="B">B) Apenas II e III.</div>
+            <div class="opcao" data-letra="C">C) Apenas I, III e IV.</div>
+            <div class="opcao" data-letra="D">D) Apenas I e IV.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa C</strong>. A pegadinha clássica da banca FUNECE consiste em misturar atribuições da escola com atribuições do professor. Os itens I, III e IV são atribuições expressas dos docentes (Art. 13, Incisos I, IV e VI). O item II, contudo, refere-se a uma obrigação legal imputada diretamente ao *estabelecimento de ensino* (Art. 12, Inciso VIII, alínea 'b'). O docente reporta internamente, mas a notificação institucional ao Conselho Tutelar cabe à escola jurídica/administrativa.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 9 (Tradicional) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 09 — Nível Difícil</span>
+        <p class="enunciado">As alterações operadas na LDB pelas Leis nº 14.644/2023 e posteriores incidiram sobre a governança democrática do ensino público. Cotejando os comandos dos Artigos 10, 11 e 12 da LDB, assinale a alternativa que aponta com precisão a distinção na obrigatoriedade de instituição de órgãos colegiados territoriais e escolares:</p>
+        
+        <div class="opcoes" data-correta="D">
+            <div class="opcao" data-letra="A">A) Os estabelecimentos de ensino, os Estados e os Municípios devem instituir, indistintamente e no mesmo nível hierárquico, os Conselhos Escolares e os Fóruns dos Conselhos Escolares.</div>
+            <div class="opcao" data-letra="B">B) A instituição dos Fóruns dos Conselhos Escolares é obrigação restrita aos estabelecimentos de ensino, cabendo aos Municípios unicamente o suporte orçamentário.</div>
+            <div class="opcao" data-letra="C">C) Apenas os Estados federados estão adstritos à criação de Conselhos Escolares, ficando os Municípios limitados à esfera consultiva dos conselhos de educação preexistentes.</div>
+            <div class="opcao" data-letra="D">D) A instituição de Conselhos Escolares E de Fóruns dos Conselhos Escolares é incumbência fixada expressamente para os Estados e Municípios, ao passo que aos estabelecimentos de ensino compete instituir, na forma da lei, especificamente os Conselhos Escolares.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa D</strong>. Uma leitura minuciosa revela que o Art. 10, Inciso VII-A, e o Art. 11, Inciso VII, obrigam Estados e Municípios a instituir "Conselhos Escolares e Fóruns dos Conselhos Escolares". Já o Art. 12, Inciso XI, voltado aos estabelecimentos de ensino, prescreve apenas a incumbência de "instituir, na forma da lei de que trata o art. 14, os Conselhos Escolares". A escola, isoladamente, não cria o "Fórum", que é um colegiado de articulação circunscricional mais amplo.
+        </div>
+    </div>
+
+    <!-- QUESTÃO 10 (Contemplação Múltipla) -->
+    <div class="questao">
+        <span class="questao-numero">Questão 10 — Nível Difícil</span>
+        <p class="enunciado">Considere as normas gerais que afetam a rotina das unidades escolares no que tange à segurança, convivência e saúde (Art. 12 da LDB). Analise os seguintes deveres institucionais das escolas:</p>
+        
+        <div class="bloco-itens">
+            <p>I. Promover medidas de conscientização, de prevenção e de combate a todos os tipos de violência, especialmente a intimidação sistemática (bullying), no âmbito das escolas.</p>
+            <p>II. Estabelecer ações articuladas e permanentes destinadas a promover exclusivamente a cultura de paz nas escolas, vedada qualquer correlação interna com programas de prevenção ao uso de drogas.</p>
+            <p>III. Promover ambiente escolar seguro, adotando estratégias de prevenção e enfrentamento ao uso ou dependência de drogas.</p>
+            <p>IV. Informar pai e mãe, conviventes ou não com seus filhos, e, se for o caso, os responsáveis legais, sobre a frequência e o rendimento dos alunos, bem como sobre a execução da proposta pedagógica da escola.</p>
+        </div>
+
+        <p class="enunciado">Estão corretas apenas as proposições:</p>
+
+        <div class="opcoes" data-correta="A">
+            <div class="opcao" data-letra="A">A) I, III e IV.</div>
+            <div class="opcao" data-letra="B">B) I, II e III.</div>
+            <div class="opcao" data-letra="C">C) II e IV.</div>
+            <div class="opcao" data-letra="D">D) III e IV.</div>
+        </div>
+        
+        <div class="comentario">
+            <strong>Comentário do Professor:</strong>
+            O gabarito é a <strong>Alternativa A</strong>. 
+            - O item I está perfeito, reproduzindo o Inciso IX do Art. 12.
+            - O item II incorre em erro ao asseverar uma "vedação de correlação", pois o Inciso X (cultura de paz) dialoga e soma-se diretamente com o Inciso X-A, que impõe a promoção de ambiente escolar seguro com foco na prevenção e enfrentamento ao uso ou dependência de drogas. Portanto, o item III está correto.
+            - O item IV reflete com fidedignidade a redação do Inciso VII do Art. 12, garantindo o direito de informação aos pais, conviventes ou não.
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Simulado Especialista LDB - Padrão FUNECE / SEDUC CE. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    function checarResposta(elementoOpcao) {
+        // Encontra o container de opções da respectiva questão
+        const containerOpcoes = elementoOpcao.parentElement;
+        
+        // Verifica se a questão já foi respondida/bloqueada
+        if (containerOpcoes.classList.contains('desabilitada')) {
+            return;
+        }
+
+        const letraEscolhida = elementoOpcao.getAttribute('data-letra');
+        const letraCorreta = containerOpcoes.getAttribute('data-correta');
+        const todasOpcoes = containerOpcoes.querySelectorAll('.opcao');
+
+        todasOpcoes.forEach(opcao => {
+            const letra = opcao.getAttribute('data-letra');
+            
+            // Destaca a alternativa correta em verde
+            if (letra === letraCorreta) {
+                opcao.classList.add('correta');
+            }
+            
+            // Se o usuário errou, destaca a alternativa clicada em vermelho
+            if (letra === letraEscolhida && letraEscolhida !== letraCorreta) {
+                opcao.classList.add('incorreta');
+            }
+        });
+
+        // Bloqueia novas tentativas na questão atual
+        containerOpcoes.classList.add('desabilitada');
+
+        // Revela o Comentário do Professor localizado logo abaixo das opções
+        const questaoCard = containerOpcoes.parentElement;
+        const blocoComentario = questaoCard.querySelector('.comentario');
+        if (blocoComentario) {
+            blocoComentario.style.display = 'block';
+        }
+    }
+
+    // Vincula o evento de clique a todos os elementos de classe .opcao
+    document.querySelectorAll('.opcao').forEach(botaoOpcao => {
+        botaoOpcao.addEventListener('click', function() {
+            checarResposta(this);
+        });
+    });
+</script>
+
+</body>
+</html>

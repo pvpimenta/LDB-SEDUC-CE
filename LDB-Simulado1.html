@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulado Interativo FUNECE - LDB (Art. 1º ao 5º)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        .question-container {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .question-title {
+            color: #444;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        .option {
+            display: block;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+            background-color: #fafafa;
+        }
+        .option:hover {
+            background-color: #e9ecef;
+        }
+        /* Classes aplicadas via JS */
+        .correct {
+            background-color: #d4edda !important;
+            border-color: #c3e6cb !important;
+            color: #155724 !important;
+            font-weight: bold;
+        }
+        .incorrect {
+            background-color: #f8d7da !important;
+            border-color: #f5c6cb !important;
+            color: #721c24 !important;
+        }
+        .disabled {
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        .feedback {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #e2e3e5;
+            border-left: 5px solid #6c757d;
+            border-radius: 4px;
+        }
+        .feedback-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Simulado Interativo - SEDUC CE (Banca FUNECE/CEV)</h2>
+    <p style="text-align: center; font-weight: bold; margin-bottom: 30px;">Assunto: LDB (Lei nº 9.394/1996) - Artigos 1º ao 5º</p>
+    <p style="text-align: center; color: #555; margin-bottom: 30px;"><em>Instruções: Clique na alternativa que julgar correta. O sistema mostrará imediatamente se você acertou (verde) ou errou (vermelho), juntamente com o comentário explicativo.</em></p>
+
+    <div class="question-container">
+        <h3 class="question-title">Questão 1</h3>
+        <p>O Art. 1º da LDB (Lei nº 9.394/1996) estabelece a abrangência da educação e o foco específico da lei. A partir de uma leitura atenta do dispositivo legal, assinale a alternativa correta.</p>
+        
+        <div class="option" data-group="q1" data-correct="false" onclick="checkAnswer(this, false, 'fb1', 'q1')">A) A LDB disciplina prioritariamente a educação não formal, desenvolvida nos movimentos sociais e nas organizações da sociedade civil.</div>
+        <div class="option" data-group="q1" data-correct="false" onclick="checkAnswer(this, false, 'fb1', 'q1')">B) A educação escolar, disciplinada pela LDB, deve vincular-se exclusivamente ao mundo do trabalho, preparando o indivíduo para o mercado competitivo.</div>
+        <div class="option" data-group="q1" data-correct="true" onclick="checkAnswer(this, true, 'fb1', 'q1')">C) Embora reconheça que os processos formativos se desenvolvem em diversas instâncias, a LDB disciplina a educação escolar, que se desenvolve, predominantemente, por meio do ensino, em instituições próprias.</div>
+        <div class="option" data-group="q1" data-correct="false" onclick="checkAnswer(this, false, 'fb1', 'q1')">D) A educação familiar e a convivência humana estão sujeitas à regulação e normatização direta pelo poder público, nos estritos termos da LDB.</div>
+        
+        <div id="fb1" class="feedback">
+            <div class="feedback-title">Comentário:</div>
+            <p><strong>Alternativa Correta: C.</strong> O Art. 1º, caput e §1º, deixam claro que a educação abrange diversos processos formativos (família, sociedade, etc.), mas a LDB disciplina especificamente a educação escolar, que ocorre predominantemente (e não exclusivamente) em instituições próprias.</p>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <h3 class="question-title">Questão 2</h3>
+        <p>O Art. 2º da LDB delineia os princípios inspiradores e as finalidades da educação nacional. Sobre esse tema, analise as afirmativas a seguir:</p>
+        <p>
+            I. A educação é dever exclusivo do Estado.<br>
+            II. A educação nacional é inspirada nos princípios de liberdade e nos ideais de solidariedade humana.<br>
+            III. O pleno desenvolvimento do educando e seu preparo para o exercício da cidadania compõem as finalidades da educação nacional.<br>
+            IV. A qualificação para o trabalho é um objetivo secundário em relação à formação moral.
+        </p>
+        <p>Estão corretas apenas as afirmativas:</p>
+        
+        <div class="option" data-group="q2" data-correct="false" onclick="checkAnswer(this, false, 'fb2', 'q2')">A) I e IV.</div>
+        <div class="option" data-group="q2" data-correct="true" onclick="checkAnswer(this, true, 'fb2', 'q2')">B) II e III.</div>
+        <div class="option" data-group="q2" data-correct="false" onclick="checkAnswer(this, false, 'fb2', 'q2')">C) I, II e III.</div>
+        <div class="option" data-group="q2" data-correct="false" onclick="checkAnswer(this, false, 'fb2', 'q2')">D) II, III e IV.</div>
+        
+        <div id="fb2" class="feedback">
+            <div class="feedback-title">Comentário:</div>
+            <p><strong>Alternativa Correta: B.</strong> A afirmativa I está errada pois a educação é dever da família e do Estado (Art. 2º). A afirmativa IV está errada porque a qualificação para o trabalho é uma finalidade paritária, não secundária.</p>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <h3 class="question-title">Questão 3</h3>
+        <p>Em uma escola da rede estadual do Ceará (SEDUC CE), um gestor sugeriu adotar uma linha teórica pedagógica única e inflexível, proibindo práticas divergentes. À luz dos princípios estabelecidos no Art. 3º da LDB, essa sugestão é:</p>
+        
+        <div class="option" data-group="q3" data-correct="false" onclick="checkAnswer(this, false, 'fb3', 'q3')">A) Adequada, pois atende ao princípio da garantia de padrão de qualidade.</div>
+        <div class="option" data-group="q3" data-correct="true" onclick="checkAnswer(this, true, 'fb3', 'q3')">B) Inadequada, pois fere frontalmente o princípio do pluralismo de ideias e de concepções pedagógicas.</div>
+        <div class="option" data-group="q3" data-correct="false" onclick="checkAnswer(this, false, 'fb3', 'q3')">C) Adequada, desde que aprovada pelo conselho escolar de forma democrática.</div>
+        <div class="option" data-group="q3" data-correct="false" onclick="checkAnswer(this, false, 'fb3', 'q3')">D) Inadequada, pois a LDB veda a adoção de qualquer teoria de aprendizagem em escolas públicas.</div>
+        
+        <div id="fb3" class="feedback">
+            <div class="feedback-title">Comentário:</div>
+            <p><strong>Alternativa Correta: B.</strong> O Art. 3º, inciso III, assegura como princípio o "pluralismo de ideias e de concepções pedagógicas", impossibilitando a imposição de uma única linha teórica de forma ditatorial.</p>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <h3 class="question-title">Questão 4</h3>
+        <p>Avalie as afirmativas abaixo quanto aos princípios do ensino expressos no Art. 3º da LDB atualizada:</p>
+        <p>
+            I. Respeito à diversidade humana, linguística, cultural e identitária das pessoas surdas, surdo-cegas e com deficiência auditiva.<br>
+            II. Valorização da experiência extraescolar.<br>
+            III. Gestão democrática do ensino público e do ensino privado.<br>
+            IV. Consideração com a diversidade étnico-racial.
+        </p>
+        <p>Estão corretas as afirmativas:</p>
+        
+        <div class="option" data-group="q4" data-correct="false" onclick="checkAnswer(this, false, 'fb4', 'q4')">A) I, III e IV, apenas.</div>
+        <div class="option" data-group="q4" data-correct="true" onclick="checkAnswer(this, true, 'fb4', 'q4')">B) I, II e IV, apenas.</div>
+        <div class="option" data-group="q4" data-correct="false" onclick="checkAnswer(this, false, 'fb4', 'q4')">C) II, III e IV, apenas.</div>
+        <div class="option" data-group="q4" data-correct="false" onclick="checkAnswer(this, false, 'fb4', 'q4')">D) I, II, III e IV.</div>
+        
+        <div id="fb4" class="feedback">
+            <div class="feedback-title">Comentário:</div>
+            <p><strong>Alternativa Correta: B.</strong> A afirmativa III está incorreta porque a LDB (Art. 3º, VIII) estabelece a gestão democrática apenas do ensino PÚBLICO, na forma da Lei e da legislação dos sistemas de ensino, não abrangendo compulsoriamente a rede privada.</p>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <h3 class="question-title">Questão 5</h3>
+        <p>Segundo o Art. 4º da LDB, o dever do Estado com a educação escolar pública será efetivado mediante a garantia de diversas prerrogativas. Assinale a alternativa que reproduz fielmente a determinação legal:</p>
+        
+        <div class="option" data-group="q5" data-correct="true" onclick="checkAnswer(this, true, 'fb5', 'q5')">A) Educação básica obrigatória e gratuita dos 4 (quatro) aos 17 (dezessete) anos de idade.</div>
+        <div class="option" data-group="q5" data-correct="false" onclick="checkAnswer(this, false, 'fb5', 'q5')">B) Educação básica obrigatória e gratuita dos 0 (zero) aos 17 (dezessete) anos de idade.</div>
+        <div class="option" data-group="q5" data-correct="false" onclick="checkAnswer(this, false, 'fb5', 'q5')">C) Vaga na escola pública mais próxima à residência a toda criança a partir do dia em que completar 5 (cinco) anos de idade.</div>
+        <div class="option" data-group="q5" data-correct="false" onclick="checkAnswer(this, false, 'fb5', 'q5')">D) Atendimento educacional especializado obrigatório e exclusivo em classes, escolas ou serviços especializados.</div>
+        
+        <div id="fb5" class="feedback">
+            <div class="feedback-title">Comentário:</div>
+            <p><strong>Alternativa Correta: A.</strong> A alternativa A está perfeitamente alinhada ao Art. 4º, inciso I da LDB. A B erra a idade inicial (é 4 anos). A C erra a idade (a garantia de vaga próxima à residência é a partir dos 4 anos). A D erra ao usar o termo "exclusivo" (o AEE é preferencialmente na rede regular).</p>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <h3 class="question-title">Questão 6</h3>
+        <p>Sobre as garantias e obrigações do Estado estipuladas no Art. 4º da LDB, analise as proposições abaixo:</p>
+        <p>
+            I. O poder público deve garantir a oferta de ensino noturno regular, adequado às condições do educando.<br>
+            II. É garantido o acesso aos níveis mais elevados do ensino, da pesquisa e da criação artística, segundo a capacidade de cada um.<br>
+            III. O acesso à educação básica e gratuita é um direito reservado apenas àqueles que comprovarem vulnerabilidade socioeconômica.
+        </p>
+        <p>Estão corretas as proposições:</p>
+        
+        <div class="option" data-group="q6" data-correct="false" onclick="checkAnswer(this, false, 'fb6', 'q6')">A) I e III, apenas.</div>
+        <div class="option" data-group="q6" data-correct="true" onclick="checkAnswer(this, true, 'fb6', 'q6')">B) I e II, apenas.</div>
+        <div class="option" data-group="q6" data-correct="false" onclick="checkAnswer(this, false, 'fb6', 'q6')">C) II e III, apenas.</div>
+        <div class="option" data-group="q6" data-correct="false" onclick="checkAnswer(this, false, 'fb6', 'q6')">D) I, II e III.</div>
+        
+        <div id="fb6" class="feedback">
+            <div class="feedback-title">Comentário:</div>
+            <p><strong>Alternativa Correta: B.</strong> A proposição III é absurda perante a lei, visto que o acesso à educação básica obrigatória e gratuita é direito de todos, inclusive daqueles que não tiveram acesso na idade própria, independentemente de vulnerabilidade socioeconômica.</p>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <h3 class="question-title">Questão 7</h3>
+        <p>O conceito de "direito público subjetivo" previsto no Art. 5º da LDB implica que:</p>
+        
+        <div class="option" data-group="q7" data-correct="false" onclick="checkAnswer(this, false, 'fb7', 'q7')">A) O Estado oferta vagas na educação básica discricionariamente, segundo a reserva do possível.</div>
+        <div class="option" data-group="q7" data-correct="false" onclick="checkAnswer(this, false, 'fb7', 'q7')">B) O direito à educação escolar pública torna-se uma concessão estatal temporária.</div>
+        <div class="option" data-group="q7" data-correct="true" onclick="checkAnswer(this, true, 'fb7', 'q7')">C) Qualquer cidadão, associação, sindicato ou o Ministério Público podem acionar o Poder Judiciário para exigir o acesso à educação básica.</div>
+        <div class="option" data-group="q7" data-correct="false" onclick="checkAnswer(this, false, 'fb7', 'q7')">D) A responsabilidade pela oferta do ensino recai sobre a iniciativa privada quando o Estado falha.</div>
+        
+        <div id="fb7" class="feedback">
+            <div class="feedback-title">Comentário:</div>
+            <p><strong>Alternativa Correta: C.</strong> Sendo um direito público subjetivo, o acesso à educação básica pode ser exigido do Estado judicialmente, e o Art. 5º lista os atores legitimados a acionar o Poder Público.</p>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <h3 class="question-title">Questão 8</h3>
+        <p>Para assegurar o acesso à educação básica obrigatória, o §1º do Art. 5º da LDB delega ações concretas ao Poder Público. Julgue-as:</p>
+        <p>
+            I. Recensear anualmente as crianças e adolescentes em idade escolar.<br>
+            II. Fazer a chamada pública dos educandos.<br>
+            III. Zelar, junto aos pais ou responsáveis, pela frequência à escola.<br>
+            IV. Divulgar a lista de espera por vagas nos estabelecimentos de educação básica, inclusive creches.
+        </p>
+        <p>São deveres explícitos do Poder Público:</p>
+        
+        <div class="option" data-group="q8" data-correct="false" onclick="checkAnswer(this, false, 'fb8', 'q8')">A) I e II, apenas.</div>
+        <div class="option" data-group="q8" data-correct="false" onclick="checkAnswer(this, false, 'fb8', 'q8')">B) II e III, apenas.</div>
+        <div class="option" data-group="q8" data-correct="false" onclick="checkAnswer(this, false, 'fb8', 'q8')">C) I, II e III, apenas.</div>
+        <div class="option" data-group="q8" data-correct="true" onclick="checkAnswer(this, true, 'fb8', 'q8')">D) I, II, III e IV.</div>
+        
+        <div id="fb8" class="feedback">
+            <div class="feedback-title">Comentário:</div>
+            <p><strong>Alternativa Correta: D.</strong> Todos os itens estão rigorosamente corretos e representam deveres expressos do Poder Público, constantes nos incisos do §1º do Art. 5º, incluindo a obrigatoriedade de dar publicidade à lista de espera (inclusão recente na Lei).</p>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <h3 class="question-title">Questão 9</h3>
+        <p>Comprovada a negligência da autoridade competente para garantir o oferecimento do ensino obrigatório (Art. 5º, §4º da LDB), qual é a consequência jurídica estabelecida pela referida lei?</p>
+        
+        <div class="option" data-group="q9" data-correct="false" onclick="checkAnswer(this, false, 'fb9', 'q9')">A) O afastamento cautelar do gestor sem possibilidade de ampla defesa, respondendo por improbidade administrativa.</div>
+        <div class="option" data-group="q9" data-correct="false" onclick="checkAnswer(this, false, 'fb9', 'q9')">B) Multa revertida para a União, isentando o município da obrigação de ofertar as vagas não disponibilizadas.</div>
+        <div class="option" data-group="q9" data-correct="true" onclick="checkAnswer(this, true, 'fb9', 'q9')">C) A imputação de crime de responsabilidade.</div>
+        <div class="option" data-group="q9" data-correct="false" onclick="checkAnswer(this, false, 'fb9', 'q9')">D) A realocação compulsória de recursos federais para o ente privado gerir as escolas da respectiva região.</div>
+        
+        <div id="fb9" class="feedback">
+            <div class="feedback-title">Comentário:</div>
+            <p><strong>Alternativa Correta: C.</strong> Conforme o §4º do Art. 5º, a negligência da autoridade competente em garantir o oferecimento do ensino obrigatório poderá implicar crime de responsabilidade.</p>
+        </div>
+    </div>
+
+    <div class="question-container">
+        <h3 class="question-title">Questão 10</h3>
+        <p>Tendo em vista a organização da educação nacional propostas nos artigos 1º a 5º da LDB, julgue as asserções abaixo:</p>
+        <p>
+            I. O ensino será ministrado pautado na coexistência de instituições públicas e privadas de ensino.<br>
+            II. É garantia legal o acesso público e gratuito aos ensinos fundamental e médio a todos os que não os concluíram na idade própria.<br>
+            III. Para garantir o cumprimento da obrigatoriedade de ensino, o Poder Público criará formas alternativas de acesso aos diferentes níveis de ensino, independentemente da escolarização anterior.
+        </p>
+        <p>É correto o que se afirma em:</p>
+        
+        <div class="option" data-group="q10" data-correct="true" onclick="checkAnswer(this, true, 'fb10', 'q10')">A) I, II e III.</div>
+        <div class="option" data-group="q10" data-correct="false" onclick="checkAnswer(this, false, 'fb10', 'q10')">B) I e II, apenas.</div>
+        <div class="option" data-group="q10" data-correct="false" onclick="checkAnswer(this, false, 'fb10', 'q10')">C) II e III, apenas.</div>
+        <div class="option" data-group="q10" data-correct="false" onclick="checkAnswer(this, false, 'fb10', 'q10')">D) I, apenas.</div>
+        
+        <div id="fb10" class="feedback">
+            <div class="feedback-title">Comentário:</div>
+            <p><strong>Alternativa Correta: A.</strong> Todos os itens estão corretos. O item I baseia-se no Art. 3º, V. O item II reflete o Art. 4º, VII. E o item III encontra respaldo no Art. 5º, §5º, que prevê formas alternativas de acesso aos diferentes níveis de ensino para garantir a obrigatoriedade.</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function checkAnswer(selectedOption, isCorrect, feedbackId, groupName) {
+        // Seleciona todas as alternativas deste grupo (mesma questão)
+        const options = document.querySelectorAll(`[data-group="${groupName}"]`);
+        
+        // Verifica se a questão já foi respondida
+        if (selectedOption.classList.contains('disabled')) return;
+
+        // Desabilita cliques futuros e verifica o gabarito
+        options.forEach(option => {
+            option.classList.add('disabled');
+            
+            // Marca a alternativa correta de verde automaticamente
+            if (option.getAttribute('data-correct') === 'true') {
+                option.classList.add('correct');
+            }
+        });
+
+        // Se o usuário errou, pinta a alternativa escolhida de vermelho
+        if (!isCorrect) {
+            selectedOption.classList.add('incorrect');
+        }
+
+        // Mostra o comentário explicativo (feedback)
+        const feedbackDiv = document.getElementById(feedbackId);
+        if (feedbackDiv) {
+            feedbackDiv.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
